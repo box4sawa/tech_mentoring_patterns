@@ -10,6 +10,6 @@ public class FeatureHook extends ScenarioHook {
 
     @AfterClass(alwaysRun = true)
     public void afterFeature() {
-        WebDriverManager.quite();
+        WebDriverManager.driver().quit();
     }
 }

@@ -22,14 +22,4 @@ public class WebDriverManager {
             driver = factory.createDriver();
         return driver;
     }
-
-    public static void deleteAllCookies() {
-        if (driver != null)
-            driver.manage().deleteAllCookies();
-    }
-
-    public static void quite() {
-        if (driver != null)
-            driver.quit();
-    }
 }

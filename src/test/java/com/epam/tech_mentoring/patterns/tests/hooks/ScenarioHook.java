@@ -7,6 +7,6 @@ import org.testng.annotations.BeforeMethod;
 public class ScenarioHook {
     @BeforeMethod(alwaysRun = true)
     public void beforeScenario() {
-        WebDriverManager.deleteAllCookies();
+        WebDriverManager.driver().manage().deleteAllCookies();
     }
 }
