@@ -5,28 +5,30 @@ import com.epam.tech_mentoring.patterns.core.driver_factory.desktop.FireFoxDrive
 import org.openqa.selenium.WebDriver;
 
 public class WebDriverManager {
-    private WebDriver driver;
-    private WebDriverFactory factory;
+    private static WebDriver driver;
+    private static WebDriverFactory factory;
 
-    public WebDriverManager(String browserName) {
+    static {
+        String browserName = System.getProperty("browserName", "chrome");
+
         if (browserName.equalsIgnoreCase("chrome"))
             factory = new ChromeDriverFactory();
         else
             factory = new FireFoxDriverFactory();
     }
 
-    public WebDriver getDriver() {
+    public static WebDriver driver() {
         if (driver == null)
             driver = factory.createDriver();
         return driver;
     }
 
-    public void deleteAllCookies() {
+    public static void deleteAllCookies() {
         if (driver != null)
             driver.manage().deleteAllCookies();
     }
 
-    public void quite() {
+    public static void quite() {
         if (driver != null)
             driver.quit();
     }

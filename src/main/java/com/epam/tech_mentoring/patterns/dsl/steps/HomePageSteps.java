@@ -1,21 +1,20 @@
 package com.epam.tech_mentoring.patterns.dsl.steps;
 
+import com.epam.tech_mentoring.patterns.core.page_factory.PageBuilder;
 import com.epam.tech_mentoring.patterns.dsl.pages.GalleryPage;
 import com.epam.tech_mentoring.patterns.dsl.pages.HomePage;
-import org.openqa.selenium.WebDriver;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class HomePageSteps {
-    private WebDriver driver;
 
-    public HomePageSteps(WebDriver driver) {
-        this.driver = driver;
+    public void navigateToHomePage() {
+        PageBuilder.build(HomePage.class).get();
     }
 
     public void navigateToGalleryByLinkText(String linkText) {
-        HomePage page = new HomePage(driver);
+        HomePage page = PageBuilder.build(HomePage.class);
         page.clickOnLinkByText(linkText);
-        assertThat(new GalleryPage(driver).isLoaded()).as("Gallery page is not loaded");
+        assertThat(PageBuilder.build(GalleryPage.class).isLoaded()).as("Gallery page is not loaded");
     }
 }

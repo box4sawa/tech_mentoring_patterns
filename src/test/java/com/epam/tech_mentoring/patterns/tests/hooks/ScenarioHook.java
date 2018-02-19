@@ -5,10 +5,8 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.BeforeMethod;
 
 public class ScenarioHook {
-    protected WebDriverManager driverManager = new WebDriverManager(System.getProperty("browserName", "chrome"));
-
     @BeforeMethod(alwaysRun = true)
     public void beforeScenario() {
-        driverManager.deleteAllCookies();
+        WebDriverManager.deleteAllCookies();
     }
 }

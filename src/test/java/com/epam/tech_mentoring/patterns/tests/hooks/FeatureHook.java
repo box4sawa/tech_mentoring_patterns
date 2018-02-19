@@ -1,18 +1,15 @@
 package com.epam.tech_mentoring.patterns.tests.hooks;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.chrome.ChromeDriver;
+import com.epam.tech_mentoring.patterns.core.driver_factory.WebDriverManager;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 public class FeatureHook extends ScenarioHook {
     @BeforeClass(alwaysRun = true)
-    public void beforeFeature() {
-        driverManager.getDriver();
-    }
+    public void beforeFeature() { WebDriverManager.driver(); }
 
     @AfterClass(alwaysRun = true)
     public void afterFeature() {
-        driverManager.quite();
+        WebDriverManager.quite();
     }
 }
