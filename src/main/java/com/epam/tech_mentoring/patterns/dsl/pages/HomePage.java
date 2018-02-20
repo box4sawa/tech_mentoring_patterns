@@ -1,10 +1,16 @@
 package com.epam.tech_mentoring.patterns.dsl.pages;
 
-import org.openqa.selenium.By;
+import com.epam.tech_mentoring.patterns.core.page_factory.elements.Link;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
+
+import java.util.List;
 
 public class HomePage extends BasePage {
     public static final String BASE_URL = "https://pn.com.ua/";
+
+    @FindBy(css = "li a")
+    public List<Link> galleryLinks;
 
     @Override
     public boolean isLoaded() {
@@ -21,6 +27,9 @@ public class HomePage extends BasePage {
     }
 
     public void clickOnLinkByText(String linkText) {
-        driver.findElement(By.linkText(linkText)).click();
+        galleryLinks.stream()
+                .filter(link -> link.getText().equalsIgnoreCase(linkText))
+                .findFirst()
+                .ifPresent(Link::click);
     }
 }

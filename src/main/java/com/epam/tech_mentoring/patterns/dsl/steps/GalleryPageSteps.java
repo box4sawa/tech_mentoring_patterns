@@ -1,5 +1,6 @@
 package com.epam.tech_mentoring.patterns.dsl.steps;
 
+import com.epam.tech_mentoring.patterns.core.driver_factory.WebDriverManager;
 import com.epam.tech_mentoring.patterns.core.page_factory.PageBuilder;
 import com.epam.tech_mentoring.patterns.dsl.pages.GalleryPage;
 
