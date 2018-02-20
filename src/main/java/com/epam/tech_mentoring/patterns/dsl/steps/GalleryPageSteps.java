@@ -1,12 +1,9 @@
 package com.epam.tech_mentoring.patterns.dsl.steps;
 
-import com.epam.tech_mentoring.patterns.core.driver_factory.WebDriverManager;
 import com.epam.tech_mentoring.patterns.core.page_factory.PageBuilder;
 import com.epam.tech_mentoring.patterns.dsl.pages.GalleryPage;
-
 import java.util.List;
 import java.util.stream.Collectors;
-
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class GalleryPageSteps {

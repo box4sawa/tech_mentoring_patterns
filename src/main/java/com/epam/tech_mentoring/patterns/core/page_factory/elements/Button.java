@@ -7,7 +7,5 @@ public class Button extends CustomWebElement {
         super(element);
     }
 
-    public void click() {
-        element.click();
-    }
+    public void click() { element.click(); }
 }
